@@ -9,8 +9,8 @@ RSpec.describe Tasks::Update, type: :service do
   let(:task_params) do
     { title: "Updated Task", description: "Updated description", due_date: "2025-01-01", board_id: create(:board).id }
   end
-  let(:users_assigned) { [other_user.id] } # Asignando un nuevo usuario a la tarea
-  
+  let(:users_assigned) { [ other_user.id ] } # Asignando un nuevo usuario a la tarea
+
   describe "#call" do
     context "when updating task and user assignments" do
       before do
@@ -20,7 +20,7 @@ RSpec.describe Tasks::Update, type: :service do
 
       it "updates the task and user assignments" do
         service = Tasks::Update.new(task, task_params, users_assigned)
-        
+
         updated_task = service.call
 
         # Verificar que la tarea se haya actualizado

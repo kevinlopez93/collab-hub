@@ -1,7 +1,6 @@
 module Github
   module Api
     class Repositories < Base
-      
       def fetch_all(params)
         HTTParty.get(
           "#{ENV['GITHUB_API_URL']}/user/repos#{query_params(params)}",
@@ -20,17 +19,17 @@ module Github
 
       def headers
         {
-          "Accept": "application/vnd.github+json", 
+          "Accept": "application/vnd.github+json",
           "Authorization": "Bearer #{access_token}"
         }
       end
-  
+
       def query_params(params)
         return "" if params.empty?
-  
+
         "?#{build_query_params(params)}"
       end
-  
+
       def build_query_params(params)
         params.keys.map { |key, value| "#{key}=#{value}" }.join("&")
       end

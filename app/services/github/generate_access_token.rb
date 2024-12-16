@@ -54,8 +54,8 @@ module Github
     end
 
     def string_to_json(string)
-      result = string.split('&').each_with_object({}) do |pair, hash|
-        key, value = pair.split('=')
+      result = string.split("&").each_with_object({}) do |pair, hash|
+        key, value = pair.split("=")
         hash[key] = value
       end
       result.with_indifferent_access

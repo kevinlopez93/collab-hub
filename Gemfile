@@ -22,7 +22,7 @@ gem "rack-cors"
 gem "active_model_serializers", "~> 0.10.13"
 
 # Use EnumerateIt for enum attributes
-gem 'enumerate_it'
+gem "enumerate_it"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -61,14 +61,14 @@ group :development, :test do
   gem "byebug", "~> 11.1"
 
   # Use RSpec for testing
-  gem 'rspec-rails', '~> 6.0'
+  gem "rspec-rails", "~> 6.0"
   gem "factory_bot_rails"
   gem "faker"
-  gem 'shoulda-matchers'
-  gem 'shoulda-callback-matchers'
-  gem 'database_cleaner-active_record'
-  gem 'simplecov', require: false
-  gem 'webmock'
+  gem "shoulda-matchers"
+  gem "shoulda-callback-matchers"
+  gem "database_cleaner-active_record"
+  gem "simplecov", require: false
+  gem "webmock"
 
   gem "bullet", "~> 8.0"
 end
@@ -98,5 +98,4 @@ gem "httparty", "~> 0.22.0"
 gem "alpha"
 
 # Cron jobs to execute tasks on a schedule
-gem 'whenever'
-
+gem "whenever"

@@ -6,7 +6,7 @@ RSpec.describe Api::V1::TasksController, type: :controller do
   let!(:task) { create(:task, board: board, creator: user) }
   let(:task_params) { { title: "New Task", description: "Task description", board_id: board.id, due_date: Time.zone.today } }
   let(:invalid_task_params) { { title: "", description: "", board_id: nil } }
-  let(:users_assigned) { [create(:user).id] }
+  let(:users_assigned) { [ create(:user).id ] }
 
   describe "GET #index" do
     let!(:tasks) { create_list(:task, 2, board: board, creator: user) }

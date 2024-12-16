@@ -21,7 +21,7 @@ RSpec.describe Project, type: :model do
 
   describe '.ransackable_attributes' do
     it 'returns the correct attributes' do
-      expect(Project.ransackable_attributes).to eq(['id', 'name', 'created_at', 'updated_at'])
+      expect(Project.ransackable_attributes).to eq([ 'id', 'name', 'created_at', 'updated_at' ])
     end
   end
 end

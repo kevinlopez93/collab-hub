@@ -19,7 +19,7 @@ RSpec.describe Task, type: :model do
 
   describe '.ransackable_attributes' do
     it 'returns the correct attributes' do
-      expect(Task.ransackable_attributes).to eq(['id', 'title', 'description', 'workflow_status', 'created_at', 'updated_at'])
+      expect(Task.ransackable_attributes).to eq([ 'id', 'title', 'description', 'workflow_status', 'created_at', 'updated_at' ])
     end
   end
 end

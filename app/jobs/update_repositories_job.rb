@@ -70,6 +70,6 @@ class UpdateRepositoriesJob < ApplicationJob
   end
 
   def repositories
-    @repositories ||= @current_user.repositories 
+    @repositories ||= @current_user.repositories
   end
 end

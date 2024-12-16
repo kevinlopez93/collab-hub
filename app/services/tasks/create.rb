@@ -10,7 +10,7 @@ module Tasks
       ActiveRecord::Base.transaction do
         task = create_task
         crate_user_tasks(task) if task.persisted? && user_ids.present?
-  
+
         task
       end
     end

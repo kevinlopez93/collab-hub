@@ -26,7 +26,7 @@ module Tasks
 
     def update_user_assignments
       # Elimina relaciones no incluidas
-      task.user_tasks.where.not(user_id: user_ids).destroy_all 
+      task.user_tasks.where.not(user_id: user_ids).destroy_all
 
       existing_user_ids = task.user_tasks.pluck(:user_id)
 

@@ -8,7 +8,7 @@ class Api::V1::AuthController < ApplicationController
     if user&.authenticate(params[:password])
       render json: { token: JsonWebToken.generate_token(user), user: UserSerializer.new(user) }, status: :ok
     else
-      render json: { error: 'Invalid username or password' }, status: :unauthorized
+      render json: { error: "Invalid username or password" }, status: :unauthorized
     end
   end
 

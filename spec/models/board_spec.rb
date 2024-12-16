@@ -15,7 +15,7 @@ RSpec.describe Board, type: :model do
 
   describe '.ransackable_attributes' do
     it 'returns the correct attributes' do
-      expect(Board.ransackable_attributes).to eq(['id', 'name', 'created_at', 'updated_at'])
+      expect(Board.ransackable_attributes).to eq([ 'id', 'name', 'created_at', 'updated_at' ])
     end
   end
 end

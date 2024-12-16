@@ -15,7 +15,7 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     authorize Task
-    
+
     task = Tasks::Create.new(task_params, current_user, users_assigned).call
 
     if task.persisted?

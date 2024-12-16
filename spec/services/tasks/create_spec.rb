@@ -4,7 +4,7 @@ RSpec.describe Tasks::Create, type: :service do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:task_params) { { title: "New Task", description: "Task description", due_date: "2024-12-30", board_id: create(:board).id } }
-  let(:users_assigned) { [other_user.id] } # Asignando un usuario a la tarea
+  let(:users_assigned) { [ other_user.id ] } # Asignando un usuario a la tarea
 
   describe "#call" do
     context "when creating task and assigning users" do

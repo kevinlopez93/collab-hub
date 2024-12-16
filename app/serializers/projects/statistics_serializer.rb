@@ -7,7 +7,7 @@ module Projects
     def boards_count
       object.boards.count
     end
-  
+
     def tasks_count
       object.tasks.count
     end

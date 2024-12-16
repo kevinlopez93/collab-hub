@@ -31,7 +31,7 @@ module App
 
     config.generators do |g|
       g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
     config.hosts << "bdc4-45-167-95-113.ngrok-free.app"

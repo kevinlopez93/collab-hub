@@ -1,6 +1,5 @@
 module Api::V1
   class GithubController < ApplicationController
-
     # GET /github/authorize
     def index
       url = "#{ENV['GITHUB_URL']}/login/oauth/authorize?client_id=#{ENV['GITHUB_CLIENT_ID']}&scope=repo,user:read&state=#{current_user.token}&redirect_uri=#{ENV['GITHUB_REDIRECT_URI']}"

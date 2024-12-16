@@ -82,7 +82,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     it "returns http success" do
       login user
       put :update, params: { username: new_user.username, user: { role: RoleUserEnum::DEVELOPER } }
-      
+
       expect(response).to have_http_status(:success)
       expect(new_user.reload.role).to eq(RoleUserEnum::DEVELOPER)
       expect(json["user"]).to eq(UserSerializer.new(new_user).as_json.stringify_keys)

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
-  private 
+  private
 
   def handle_record_not_unique(exception)
     render json: { errors: exception.message }, status: :unprocessable_entity
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
   end
 
   def not_authorized
-    render json: { error: 'Not authorized' }, status: :unauthorized
+    render json: { error: "Not authorized" }, status: :unauthorized
   end
 
   def current_user

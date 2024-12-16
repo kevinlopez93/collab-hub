@@ -43,7 +43,7 @@ class Api::V1::ProjectsController < ApplicationController
   def statistics
     authorize @project
 
-    render json: @project, serializer: Projects::StatisticsSerializer , status: :ok
+    render json: @project, serializer: Projects::StatisticsSerializer, status: :ok
   end
 
   private

@@ -8,7 +8,7 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
-  
+
   def statistics?
     true
   end

@@ -11,9 +11,9 @@ class User < ApplicationRecord
 
   has_enumeration_for :role, with: RoleUserEnum, create_helpers: true
 
-  has_many :created_tasks, class_name: 'Task', foreign_key: 'creator_id', dependent: :nullify
-  has_many :created_projects, class_name: 'Project', foreign_key: 'created_by_id', dependent: :nullify
-  has_many :created_boards, class_name: 'Board', foreign_key: 'created_by_id', dependent: :nullify
+  has_many :created_tasks, class_name: "Task", foreign_key: "creator_id", dependent: :nullify
+  has_many :created_projects, class_name: "Project", foreign_key: "created_by_id", dependent: :nullify
+  has_many :created_boards, class_name: "Board", foreign_key: "created_by_id", dependent: :nullify
 
   has_many :user_tasks
   has_many :assigned_tasks, through: :user_tasks, source: :task

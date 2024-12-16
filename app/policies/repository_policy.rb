@@ -2,7 +2,7 @@ class RepositoryPolicy < ApplicationPolicy
   def index?
     true
   end
-  
+
   class Scope < Scope
     def resolve
       return scope.all if user.admin? || user.project_manager?

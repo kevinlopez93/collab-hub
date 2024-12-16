@@ -44,7 +44,9 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :role)
+    allowed_params = [:username, :email, :password]
+    allowed_params << :role if current_user&.admin?
+    params.require(:user).permit(*allowed_params)
   end
 
   def set_user

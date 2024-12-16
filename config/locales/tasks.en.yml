@@ -1,0 +1,7 @@
+en:
+  task:
+    statuses:
+      todo: "To do"
+      pending: "Pending"
+      in_progress: "In progress"
+      completed: "Completed"

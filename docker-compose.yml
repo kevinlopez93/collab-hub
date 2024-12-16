@@ -1,0 +1,44 @@
+services:
+
+  redis:
+    image: redis:7
+    container_name: collab_hub_redis
+    ports:
+      - '6379:6379'
+  db:
+    image: postgres:15
+    container_name: collab_hub_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  app:
+    image: collab_hub
+    container_name: collab_hub_api
+    build: .
+    volumes:
+      - .:/rails
+    env_file: .env
+    stdin_open: true
+    tty: true
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+      - redis
+  sidekiq:
+    image: collab_hub
+    container_name: collab_hub_sidekiq
+    command: bash -c "bundle exec sidekiq"
+    volumes:
+      - .:/rails
+    env_file: .env
+    depends_on:
+      - redis
+      - db
+
+volumes:
+  db_data:

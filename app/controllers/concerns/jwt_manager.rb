@@ -1,0 +1,23 @@
+module JwtManager
+  extend ActiveSupport::Concern
+
+  def jwt_authenticate!
+    @decoded_token = JsonWebToken.decode(get_token)
+  rescue JWT::DecodeError, ActiveRecord::RecordNotFound
+    render json: { error: 'Invalid token or user not found' }, status: :unauthorized
+  end
+
+  def decoded_token
+    @decoded_token ||= jwt_authenticate!
+  end
+
+  def get_token
+    request.env['HTTP_AUTHORIZATION'].try(:split, " ").try(:second) || request.params[:http_authorization]
+  end
+
+  def current_user_jwt
+    User.find_by_email!(decoded_token[:email])
+  rescue ActiveRecord::RecordNotFound
+    raise PolicyException
+  end
+end

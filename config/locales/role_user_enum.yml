@@ -1,0 +1,6 @@
+en:
+  enumerations:
+    role_user_enum:
+      developer: 'Developer'
+      admin: 'Admin'
+      project_manager: 'Project Manager'

@@ -66,9 +66,6 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Install gems
-        run: bundle install --jobs 4 --retry 3
-
       - name: Create and migrate the database
         run: |
           bin/rails db:create RAILS_ENV=test
@@ -79,4 +76,4 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/app_test
           # REDIS_URL: redis://localhost:6379/0
-        run: bundle exec rspec .
+        run: bundle install --jobs 4 --retry 3 && bundle exec rspec .

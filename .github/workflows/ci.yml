@@ -66,6 +66,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Install gems
+        run: bundle install --jobs 4 --retry 3
+
       - name: Create and migrate the database
         run: |
           bin/rails db:create RAILS_ENV=test

@@ -22,10 +22,10 @@ module Github
     def fetch_access_token
       response = request_api
 
-      if response.code == 200 && !response.parsed_response.include?("error")
-        user.update(github_credentials: string_to_json(response.parsed_response))
+      if response.code == 200 && !response.body.include?("error")
+        user.update(github_credentials: string_to_json(response.body))
       else
-        Rails.logger.error(response.parsed_response)
+        Rails.logger.error(response.body)
       end
     end
 

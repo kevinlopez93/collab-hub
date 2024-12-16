@@ -7,6 +7,14 @@ RSpec.describe Github::GenerateAccessToken, type: :service do
     let(:user) { instance_double(User, token: user_token) }
     let(:github_url) { "#{ENV['GITHUB_URL']}/login/oauth/access_token" }
     let(:response_body) { "access_token=test_access_token&scope=repo&token_type=bearer" }
+    let(:headers) do
+      {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'Content-Type'=>'application/json',
+        'User-Agent'=>'Ruby'
+      }
+    end
 
     subject { described_class.new(code, user_token) }
 
@@ -19,7 +27,7 @@ RSpec.describe Github::GenerateAccessToken, type: :service do
       before do
         stub_request(:post, github_url)
           .with(
-            headers: { "Content-Type" => "application/json" },
+            headers: headers,
             body: {
               client_id: ENV["GITHUB_CLIENT_ID"],
               client_secret: ENV["GITHUB_CLIENT_SECRET"],
@@ -28,14 +36,14 @@ RSpec.describe Github::GenerateAccessToken, type: :service do
               state: user_token
             }.to_json
           )
-          .to_return(status: 200, body: response_body, headers: { "Content-Type" => "application/x-www-form-urlencoded" })
+          .to_return(status: 200, body: response_body, headers: headers)
       end
 
       it 'fetches and updates the user\'s GitHub credentials' do
         subject.call
 
         expect(WebMock).to have_requested(:post, github_url).with(
-          headers: { "Content-Type" => "application/json" },
+          headers: headers,
           body: {
             client_id: ENV["GITHUB_CLIENT_ID"],
             client_secret: ENV["GITHUB_CLIENT_SECRET"],
@@ -70,7 +78,7 @@ RSpec.describe Github::GenerateAccessToken, type: :service do
     context 'when the API returns an error' do
       before do
         stub_request(:post, github_url)
-          .to_return(status: 400, body: "error=invalid_code", headers: { "Content-Type" => "application/x-www-form-urlencoded" })
+          .to_return(status: 400, body: "error=invalid_code", headers: headers)
         allow(Rails.logger).to receive(:error)
       end
 

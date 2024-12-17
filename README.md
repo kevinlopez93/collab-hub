@@ -59,19 +59,24 @@ Follow these steps to set up the project locally:
    git clone https://github.com/kevinlopez93/collab-hub.git
    cd collab-hub-api
    ```
+
+2. **Run the following command to build the image**:   
+   ```bash
+   docker compose build
+   ```
+
+3. **Database setup**:
+   - Run the following command to create and migrate the Database:
+   ```bash
+   docker compose run app bash -c "bundle exec rake db:create db:migrate"
+   ```
 ---
 
 ## Running the Application  
 
 1. **Run the following command to build the image and run the container**:   
    ```bash
-   docker compose up --build
-   ```
-
-2. **Database setup**:
-   - Run the following command to create and migrate the Database:
-   ```bash
-   docker compose run app bash -c "bundle exec rake db:create db:migrate"
+   docker compose up
    ```
 
 By default, the server will run on `http://localhost:3000`.  

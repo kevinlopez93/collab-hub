@@ -74,7 +74,7 @@ Follow these steps to set up the project locally:
 
 ## Running the Application  
 
-1. **Run the following command to build the image and run the container**:   
+1. **Run the following command to run the project**:   
    ```bash
    docker compose up
    ```

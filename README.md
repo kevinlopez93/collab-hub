@@ -56,7 +56,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:  
    ```bash
-   git clone https://github.com/your-username/collab-hub-api.git
+   git clone https://github.com/kevinlopez93/collab-hub.git
    cd collab-hub-api
    ```
 ---
@@ -136,5 +136,6 @@ We welcome contributions! Please follow these steps:
 
 For any questions feel free to contact:  
 **Kevin López**  Senior Ruby on Rails developer 
+
 Email: i.kevinlop93@gmail.com  
 GitHub: [@kevinlopez93](https://github.com/kevinlopez93)  

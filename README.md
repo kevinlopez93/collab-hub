@@ -119,6 +119,12 @@ Collab Hub API was designed following best practices to ensure scalability, main
      - **Processing GitHub repositories**: When users connect their GitHub account, the repositories are fetched via a scheduled task. This task is managed using the **Whenever gem** to schedule a cron job with **Crontab** (schduled every 1 minute), ensuring that repositories are regularly synced without blocking the main application flow.  
      - **Generating GitHub Access Tokens**: When GitHub sends the OAuth confirmation, the token generation process is handled in the background. This ensures that the user’s main request flow is not blocked while the token is generated and saved securely. 
 
+8. **Authorization with Pundit**:  
+   - **Pundit** handles access control by using policies. It ensures users can only access or modify things they're allowed to, based on their role.
+
+9. **N+1 Query Prevention with Bullet**:  
+   - **Bullet** helps spot N+1 query issues and alerts us so we can fix them by eager loading associations. This keeps the app running fast and reduces unnecessary database calls.
+
 ---
 
 ## Contributing  

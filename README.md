@@ -63,10 +63,16 @@ Follow these steps to set up the project locally:
 
 ## Running the Application  
 
-Run the following command to build the image and run the container:   
-```bash
-docker compose up --build
-```
+1. **Run the following command to build the image and run the container**:   
+   ```bash
+   docker compose up --build
+   ```
+
+2. **Database setup**:
+   - Run the following command to create and migrate the Database:
+   ```bash
+   docker compose run app bash -c "bundle exec rake db:create db:migrate"
+   ```
 
 By default, the server will run on `http://localhost:3000`.  
 

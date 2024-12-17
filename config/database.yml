@@ -60,9 +60,9 @@ development:
 test:
   <<: *default
   database: app_test
-  username: <%= ENV["APP_DATABASE_USERNAME"] %>
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
-  host: <%= ENV['APP_DATABASE_HOST']%>
+  username: <%= ENV["APP_DATABASE_USERNAME"] || "postgres" %>
+  password: <%= ENV["APP_DATABASE_PASSWORD"] || "postgres" %>
+  host: <%= ENV['APP_DATABASE_HOST'] || "localhost" %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

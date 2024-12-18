@@ -18,6 +18,6 @@ module JwtManager
   def current_user_jwt
     User.find_by_email!(decoded_token[:email])
   rescue ActiveRecord::RecordNotFound
-    raise PolicyException
+    raise Pundit::NotAuthorizedError
   end
 end

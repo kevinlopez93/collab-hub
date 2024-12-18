@@ -4,7 +4,7 @@ module JwtManager
   def jwt_authenticate!
     @decoded_token = JsonWebToken.decode(get_token)
   rescue JWT::DecodeError, ActiveRecord::RecordNotFound
-    render json: { error: "Invalid token or user not found" }, status: :unauthorized
+    invalid_token
   end
 
   def decoded_token
@@ -17,5 +17,11 @@ module JwtManager
 
   def current_user_jwt
     User.find_by_email!(decoded_token[:email])
+  rescue ActiveRecord::RecordNotFound
+    invalid_token
+  end
+
+  def invalid_token
+    render json: { error: "Invalid token or user not found" }, status: :unauthorized
   end
 end

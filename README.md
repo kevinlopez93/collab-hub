@@ -136,6 +136,10 @@ Collab Hub API was designed following best practices to ensure scalability, main
 9. **N+1 Query Prevention with Bullet**:  
    - **Bullet** helps spot N+1 query issues and alerts us so we can fix them by eager loading associations. This keeps the app running fast and reduces unnecessary database calls.
 
+10. **Entity Relationship Diagram**:
+   - Database design 
+   ![Diagrama](/public/images/ERDDiagramCollabhub.png "Diagrama")
+
 ---
 
 ## Contributing  

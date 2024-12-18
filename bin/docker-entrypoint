@@ -6,9 +6,21 @@ if [ -z "${LD_PRELOAD+x}" ]; then
     export LD_PRELOAD
 fi
 
+# Remove any leftover server.pid file if it exists
+if [ -f tmp/pids/server.pid ]; then
+  echo "Removing stale server.pid file..."
+  rm tmp/pids/server.pid
+fi
+
 # If running the rails server then create or migrate existing database
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
+    # Run db:create and db:migrate
+  if [${RAILS_ENV} == "development"]; then
+    echo "Running db:create and db:migrate..."
+    bundle exec rake db:create db:migrate
+  fi
 fi
+
 
 exec "${@}"

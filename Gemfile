@@ -61,7 +61,7 @@ group :development, :test do
   gem "byebug", "~> 11.1"
 
   # Use RSpec for testing
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
   gem "factory_bot_rails"
   gem "faker"
   gem "shoulda-matchers"

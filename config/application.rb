@@ -34,8 +34,6 @@ module App
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
-    config.hosts << "bdc4-45-167-95-113.ngrok-free.app"
-
     config.active_job.queue_adapter = :sidekiq
   end
 end

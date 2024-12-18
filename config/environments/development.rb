@@ -83,4 +83,6 @@ Rails.application.configure do
     Bullet.unused_eager_loading_enable = true # Detect unused eager loading
     Bullet.counter_cache_enable = true       # Detect missing counter cache
   end
+
+  config.hosts.clear
 end

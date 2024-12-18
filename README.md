@@ -57,7 +57,7 @@ Follow these steps to set up the project locally:
 1. **Clone the repository**:  
    ```bash
    git clone https://github.com/kevinlopez93/collab-hub.git
-   cd collab-hub-api
+   cd collab-hub
    ```
 
 2. **Run the following command to build the image**:   
